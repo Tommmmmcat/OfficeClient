@@ -9,14 +9,15 @@ $method = isset($_POST['method']) ? $_POST['method'] : "";
 
 $arr = array(
     'method' => $method,
-    'data' => array('employee_account' => $employee_name,
+    'data' => array(
+        'employee_account' => $employee_name,
         'password' => $password
     )
 );
 
 
 $data_string = json_encode($arr);
-$ch = curl_init(config::basicUrl);
+$ch = curl_init(config::EmployeeUrl);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -28,14 +29,18 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
 $json = json_decode($result, true);
 
+
 if ($json["status"] == 1) 
 {
     foreach ($json["data"] as $key => $value) {
         $id = $value['employee_id'];
     }
-    include '../Controller/index.php';
+    echo "hello ".$employee_name;
+    include '../Controller/blank.php';
 } else {
+  //  $json[];
     echo "Error Message： " .$json["error"];
+    include '../Controller/login.html';
 }
 
 

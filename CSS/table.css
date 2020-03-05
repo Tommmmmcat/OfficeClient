@@ -1,0 +1,35 @@
+.Showtr>tbody>tr:hover{
+    background-color: #adadad;
+    
+}
+
+#inputDepartment,#inputEmail,#inputPosition,#inputStatus,#inputFrom,#inputTo
+
+
+{
+    width:200px;
+     
+     position: absolute;
+     right: 110px;
+ 
+
+}
+#inputAccount,#inputEmpoyleeName,#inputGender,#inputEmail,#Address,#Birthday,#inpuGender{
+    
+    width:100px;
+     
+     position: absolute;
+     right: 200px;
+}
+.Savebtn{
+    left: 30px;
+    position: absolute;
+}
+.Editbtn{
+    right: 100px;
+    position: absolute;
+  
+}
+
+
+

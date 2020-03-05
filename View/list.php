@@ -1,3 +1,7 @@
+<?php 
+include '../View/header.php';
+?>
+
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
@@ -13,7 +17,7 @@
 
             <?php
             //$data_string = json_encode($arr);
-            $ch = curl_init('http://192.168.0.213:8080/OfficeSystemServer/webresources/Employee');
+            $ch = curl_init('http://10.102.250.213:8080/OfficeSystemServer/webresources/Employee');
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
             // curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -26,9 +30,9 @@
 
             $json = json_decode($result, true);
             ?>
-            <tr>
+            <tr >
                 <?php foreach ($json["data"] as $key => $value) { ?>
-                <tr>
+                <tr class="js-canvi-open-button">
                     <td><?php echo $id = $value['employee_id']; ?></td>
                     <td><?php echo $employee_name = $value['employee_name']; ?></td>
                     <td><?php echo $department = $value['department_name']; ?></td>
@@ -37,6 +41,7 @@
                     </tr>
                 <?php } ?>
         </tbody>
+        
     </table>
 </div>
 
