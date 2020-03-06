@@ -1,3 +1,4 @@
+<script src="../CSS/vendor/jquery.min.js"></script>
 <?php
 
 class Employee {
@@ -72,12 +73,95 @@ foreach ($json['data'] as $key => $value) {
 
 include '../View/header.php';
 
-include '../View/aside2.php'; 
-include '../View/aside.php'; 
+
 
 include '../View/nav.php';
-
+include '../View/aside2.php';
 
 include '../View/main.php';
 
+
+include '../View/aside.php';
+
 include '../View/footer.php';
+?>
+
+
+<script>
+
+    $("#clickbtn").click(function () {
+        $.ajax({
+            //Post传参
+            type: "Get",
+            //服务地址
+            url: "http://192.168.0.213:8080/OfficeSystemServer/webresources/Employee",
+            data: null,
+            dataType: "text",
+            contentType: "text/plain;charset=utf-8",
+            success: function (result) {//result类型为String
+                var obj = JSON.parse(result);//将result转为JSON
+                var data = obj.data;//从返回值JSON中获取DATA字段的数据
+                for (i = 0; i < data.length; i++) {
+                    $("#tab").append(
+                            "<tr id = 'tttr' onclick = 'trClick(" + JSON.stringify(data[i]) + ")' >\n\
+                                <td>" + data[i].employee_id + "</td>\n\
+                                <td>" + data[i].employee_name + "</td>\n\
+                                <td>" + data[i].department_name + "</td>\n\
+                                <td>" + data[i].position_name + "</td>\n\
+                                <td>" + data[i].status + "</td></tr>")
+                }
+
+
+            },
+            error: function (e) {
+                window.alert(e.status);
+            }
+        })
+    });
+</script>
+
+<script>
+    function trClick(data) {
+        // document.getElementById( "tttr" ).className =  "js-canvi-open-button--left";
+
+        document.getElementById("account").innerHTML = data.employee_account;
+        document.getElementById("address").innerHTML = data.address;
+        document.getElementById("name").innerHTML = data.employee_name;
+        document.getElementById("email").innerHTML = data.email;
+        document.getElementById('gender').innerHTML = data.genre;
+        document.getElementById('position').innerHTML =data.position_name;
+        document.getElementById('status').innerHTML=data.status;
+        dacument.getElementById('department').innerHTML=data.department_name;
+        
+        //{"date":"","birthday":"1997-02-14","address":"224 Glenwood","department_id":3,"department_name":"Management","position_name":"HR","employee_name":"BO",
+        //"password":null,"employee_id":65,"genre":1,"email":"D00198309@student.dkit.ie","employee_account":"D00198309","position_id":1,"status":2})
+    }
+</script>
+
+<?php for ($x = 0; $x <= 9; $x++) { ?>
+
+    <script>
+        var t = new Canvi({
+            content: ".js-canvi-content1",
+            isDebug: !1,
+            navbar: ".myCanvasNav1",
+            openButton: ".js-canvi-open-button--left-1",
+            position: "right",
+            pushContent: !1,
+            speed: "0.2s",
+            width: "100vw",
+            responsiveWidths: [{
+                    breakpoint: "600px",
+                    width: "280px"
+                }, {
+                    breakpoint: "1280px",
+                    width: "320px"
+                }, {
+                    breakpoint: "1600px",
+                    width: "650px"
+                }]
+        })
+    </script>
+
+
+<?php } ?>

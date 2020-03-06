@@ -4,11 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/Office_system_v0.2/View/main.php</file>
+            <file>file:/C:/xampp/htdocs/Office_system_v0.2/View/aside.php</file>
             <file>file:/C:/xampp/htdocs/Office_system_v0.2/Controller/index.php</file>
-            <file>file:/C:/xampp/htdocs/Office_system_v0.2/CSS/table.css</file>
-            <file>file:/C:/xampp/htdocs/Office_system_v0.2/CSS/bootstrap.min.css</file>
-            <file>file:/C:/xampp/htdocs/Office_system_v0.2/Controller/table.php</file>
-            <file>file:/C:/xampp/htdocs/Office_system_v0.2/Include/Config.php</file>
+            <file>file:/C:/xampp/htdocs/Office_system_v0.2/View/footer.php</file>
         </group>
     </open-files>
 </project-private>

@@ -92,7 +92,33 @@
         ?>
 
 
-        <aside class="myCanvasNav1 canvi-navbar">
+      
+
+        <h2 class="sub-header" id="clickbtn">All employee information</h2>
+        <div class="js-canvi-content1 canvi-content">  
+            <div class="table-responsive">
+                   <table class="table table-striped table-hover"  id="tab">
+                            <thead>
+                                <tr >
+                                    <th>#</th>
+                                    <th>Empoylee Name</th>
+                                    <th>Department</th>
+                                    <th>Position</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="js-canvi-open-button--left">
+                            
+                            </tbody>
+                        </table>
+
+            </div>
+
+        </div>
+
+         
+         
+           <aside class="myCanvasNav1 canvi-navbar">
 
             <div class="table-responsive">
                 <br>
@@ -103,39 +129,34 @@
                 <form class="form-inline" role="form" >
                     <div class="form-group">
                         <label for="Account" >Account :</label>   
-                        <label  text-align="right" text-align="end" type="text" id="inputAccount"  placeholder="Account" required autofocus ><?php echo $map[65]->employee_account ?></label>
+                        <label  text-align="right" text-align="end" type="text" id="inputAccount"  placeholder="Account" required autofocus  ><p  id="account"></label>
                     </div>
                     <br>
 
                     <div class="form-group">
                         <label for="EmpoyleeName" >Empoylee Name:</label> 
-                        <label  text-align="right" text-align="end"  type="text" id="inputEmpoyleeName"  placeholder="EmployeeName" required ><?php echo $map[65]->employee_name ?></label>
+                        <label  text-align="right" text-align="end"  type="text" id="inputEmpoyleeName"  placeholder="EmployeeName" required  ><p id="name"></label>
                     </div>
                     <br>
 
                     <div class="form-group">
                         <label for="EmpoyleeName" >Gender:</label> 
-                        <label  text-align="right" text-align="end"  type="text" id="inpuGender"  placeholder="EmployeeName" required ><?php echo $map[65]->genre ?></label>
+                        <label  text-align="right" text-align="end"  type="text" id="inpuGender"  placeholder="EmployeeName" required ><p id="gender"></label>
                     </div>
                     <br>
 
                     <div class="form-group">
                         <label for="EmpoyleeName" >Email:</label> 
-                        <label  text-align="right" text-align="end"  type="text" id="inputEmail"  placeholder="EmployeeName" required ><?php echo $map[65]->email ?></label>
+                        <label  text-align="right" text-align="end"  type="text" id="inputEmail"  placeholder="EmployeeName" required ><p id="email"></p></label>
                     </div>
                     <br>    
 
                     <div class="form-group">
                         <label for="Address" >Address:</label>
-                        <label  text-align="right" text-align="end"  type="text" id="Address"  placeholder="Password" required ><?php echo $map[65]->address ?></label>
+                        <label  text-align="right" text-align="end"  type="text" id="Address"  placeholder="Password" required ><p id="address"></label>
                     </div>
                     <br>
 
-                    <div class="form-group">
-                        <label for="Birthday" >Birthday:</label>
-                        <label text-align="right" text-align="end"  type="text" id="Birthday"  placeholder="Birthday" required ><?php echo $map[65]->birthday ?></label>
-                    </div>
-                    <br>
 
                     <div class="form-group">
                         <label for="Department" >Department:</label>
@@ -183,59 +204,68 @@
 
             </div>
         </aside> 
-
-        <h2 class="sub-header">All employee information</h2>
-        <div class="js-canvi-content1 canvi-content">  
-            <div class="table-responsive">
-                <table class="table table-striped Showtr" >
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Empoylee Name</th>
-                            <th>Department</th>
-                            <th>Position</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <?php $num=0;
-                        foreach ($json['data'] as $key => $value) { ?>
-                            <tr class=<?php echo "js-canvi-open-button--left" . $num++; ?>>
-                                <?php $id = $value['employee_id']?>
-                                <td><?php echo$map[$id]->employee_id ?></td>
-                                <td><?php echo $map[$id]->employee_name; ?></td>
-                                <td><?php echo $map[$id]->department_name ?></td>
-                                <td><?php echo $map[$id]->position_name; ?></td>
-                                <td><?php echo $map[$id]->status; ?></td>
-                                <?php
-
-                                ?>
-
-
-                            </tr>
-                        <?php } ?>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>
-
-
+  </body>
 
         <script>window.jQuery || document.write('<script src="../CSS/vendor/jquery.min.js"><\/script>')</script>
         <script type="text/javascript" src="../CSS/LeftMenu/canvi.js"></script>
-        <?php for ($x = 0; $x <= 9; $x++) { ?>
+            
+            <script> 
+    
+    $("#clickbtn").click(function () {
+        $.ajax({
+            //Post传参
+            type: "Get",
+            //服务地址
+            url: "http://192.168.0.213:8080/OfficeSystemServer/webresources/Employee",
+            data: null,
+            dataType: "text",
+            contentType: "text/plain;charset=utf-8",
+            success: function (result) {//result类型为String
+                var obj = JSON.parse(result);//将result转为JSON
+                var data = obj.data;//从返回值JSON中获取DATA字段的数据
+                for (i = 0; i < data.length; i++) {
+                    $("#tab").append(
+                            "<tr id = 'tttr' onclick = 'trClick(" + JSON.stringify(data[i]) + ")' >\n\
+                                <td>" + data[i].employee_id + "</td>\n\
+                                <td>" + data[i].employee_name + "</td>\n\
+                                <td>" + data[i].department_name + "</td>\n\
+                                <td>" + data[i].position_name + "</td>\n\
+                                <td>" + data[i].status + "</td></tr>")
+                }
+                
+                
+            },
+            error: function (e) {
+                window.alert(e.status);
+            }
+        })
+    });
+</script>
 
-            <script>
+<script>
+    function trClick(data) {
+       // document.getElementById( "tttr" ).className =  "js-canvi-open-button--left";
+        
+        document.getElementById("account").innerHTML = data.employee_account;
+        document.getElementById("address").innerHTML = data.address;
+        document.getElementById("name").innerHTML = data.employee_name;
+        document.getElementById("email").innerHTML = data.email;
+        document.getElementById('gender').innerHTML=data.genrel;
+    }
+</script>
+
+        <script src="../CSS/vendor/jquery.min.js"></script>
+        <script src="../CSS/transition.js"></script> 
+        <script src="../CSS/dropdown.js"></script>
+        <script src="../CSS/collapse.js"></script>
+        
+        
+              <script>
             var t = new Canvi({
                 content: ".js-canvi-content1",
                 isDebug: !1,
                 navbar: ".myCanvasNav1",
-                openButton: ".js-canvi-open-button--left" +<?php echo $x ?>,
+                openButton: ".js-canvi-open-button--left",
                 position: "right",
                 pushContent: !1,
                 speed: "0.2s",
@@ -253,13 +283,5 @@
             })
             </script>
 
-
-        <?php } ?>
-
-        <script src="../CSS/vendor/jquery.min.js"></script>
-        <script src="../CSS/transition.js"></script> 
-        <script src="../CSS/dropdown.js"></script>
-        <script src="../CSS/collapse.js"></script>
-
-    </body>
+  
 </html>

@@ -38,10 +38,10 @@
                     </div>
                 </div>
 
-                <h2 class="sub-header">All employee information</h2>
+                <h2  class="sub-header"  >All employee information</h2>
                 <div class="js-canvi-content1 canvi-content">  
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover">
+                        <table class="table table-striped table-hover"  id="tab">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -51,37 +51,8 @@
                                     <th>Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php
-                                require_once '../Include/Config.php';
-                                $ch = curl_init(config::EmployeeUrl);
-                                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-// curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                                    'Content-Type: text/plain',
-                                        // 'Content-Length: ' . strlen($data_string)
-                                        )
-                                );
-                                $result = curl_exec($ch);
-
-                                $json = json_decode($result, true);
-                                ?>
-                                <?php $num = 0;
-                                foreach ($json['data'] as $key => $value) {
-                                    ?>
-                                    <tr class=<?php echo "js-canvi-open-button--left" . $num++; ?>>
-                                    <?php $id = $value['employee_id'] ?>
-                                        <td><?php echo$map[$id]->employee_id ?></td>
-                                        <td><?php echo $map[$id]->employee_name; ?></td>
-                                        <td><?php echo $map[$id]->department_name ?></td>
-                                        <td><?php echo $map[$id]->position_name; ?></td>
-                                        <td><?php echo $map[$id]->status; ?></td>
-    <?php ?>
-
-
-                                    </tr>
-<?php } ?>
+                            <tbody class="js-canvi-open-button--left-1">
+                           
                             </tbody>
                         </table>
                     </div>
@@ -91,4 +62,5 @@
         </div>
 
     </div>
+
 </main>
