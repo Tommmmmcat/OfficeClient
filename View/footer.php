@@ -81,6 +81,9 @@ responsiveWidths: [{
 <script src="../CSS/transition.js"></script> 
 <script src="../CSS/dropdown.js"></script>
 <script src="../CSS/collapse.js"></script>
+    <script src="../CSS/Modal/modal.js"></script>
+    <script src="../CSS/Modal/popover.js"></script>
+    <script src="../CSS/Modal/tooltip.js"></script>
 
 </body>
 </html>

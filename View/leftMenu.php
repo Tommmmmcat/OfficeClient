@@ -5,8 +5,8 @@
                         <ul class="nav nav-sidebar">
 
                             <li class="js-canvi-open-button--left"><a>Add employee</a></li>
-                            <li id="clickbtn"><a href="#">Display Employee</a></li> 
-                            <li><a   href="#">*****</a></li>
+                            <li id="clickbtn"><a href="#"  >Display Employee</a></li> 
+                            <li><a   href="#" >Show blank page</a></li>
                             <li><a href="#">*****</a></li>
                         </ul>
                         <ul class="nav nav-sidebar">

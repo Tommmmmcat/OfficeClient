@@ -69,6 +69,8 @@ foreach ($json['data'] as $key => $value) {
     $employee->department_name = $department;
     $map[$id] = $employee;
 }
+$action = "showlist";
+
 
 
 include '../View/header.php';
@@ -138,7 +140,7 @@ include '../View/footer.php';
     }
 </script>
 
-<?php for ($x = 0; $x <= 9; $x++) { ?>
+
 
     <script>
         var t = new Canvi({
@@ -164,4 +166,3 @@ include '../View/footer.php';
     </script>
 
 
-<?php } ?>

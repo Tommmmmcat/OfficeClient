@@ -1,6 +1,6 @@
 <?php
 require_once '../Include/Config.php';
-
+session_start();
 
 $employee_name = isset($_POST['username']) ? $_POST['username'] : "";
 $password = isset($_POST['password']) ? $_POST['password'] : "";
@@ -34,9 +34,11 @@ if ($json["status"] == 1)
 {
     foreach ($json["data"] as $key => $value) {
         $id = $value['employee_id'];
+        $_SESSION["id"] = $value['employee_id'];
+        
     }
     echo "hello ".$employee_name;
-    include '../Controller/blank.php';
+    include '../View/blank.php';
 } else {
   //  $json[];
     echo "Error Message： " .$json["error"];

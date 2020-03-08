@@ -33,7 +33,7 @@
 
                     <div class="form-group">
                         <label for="Address" >Address:</label>
-                        <label  text-align="right"  text-align="end"  type="text" id="Address"  placeholder="Address" required ><p style="right:22px" id="address"></P></label>
+                        <label  text-align="right"  text-align="end"  type="text" id="Address"  placeholder="Address" required ><p id="address"></P></label>
                     </div>
                     <br>
 
