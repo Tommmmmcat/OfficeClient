@@ -1,5 +1,5 @@
 
-
+<script src="../Include/GlobalConfig.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../CSS/vendor/jquery.min.js"><\/script>')</script>
 <script type="text/javascript" src="../CSS/LeftMenu/canvi.js"></script>
@@ -35,7 +35,7 @@ responsiveWidths: [{
             //Post传参
             type: "Post",
             //服务地址
-            url: "http://192.168.0.213:8080/OfficeSystemServer/webresources/Position",
+            url:GlobalConfig.Position,
             //参数,此处写死值为3，动态获取select1选择值用opt
             data: "{\"method\":\"multiple_positions\",\"data\":{\"department_id\":\"" + opt + "\"}}",
             dataType: "text",
@@ -72,7 +72,6 @@ responsiveWidths: [{
         }
 
     });
-    $(inputPosition).empty();
 </script>
 
 
@@ -84,6 +83,7 @@ responsiveWidths: [{
     <script src="../CSS/Modal/modal.js"></script>
     <script src="../CSS/Modal/popover.js"></script>
     <script src="../CSS/Modal/tooltip.js"></script>
+    <script src="../CSS/carousel.js"></script>
 
 </body>
 </html>

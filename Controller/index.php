@@ -1,5 +1,6 @@
 <script src="../CSS/vendor/jquery.min.js"></script>
 <?php
+session_start();
 
 class Employee {
 
@@ -74,12 +75,8 @@ $action = "showlist";
 
 
 include '../View/header.php';
-
-
-
 include '../View/nav.php';
 include '../View/aside2.php';
-
 include '../View/main.php';
 
 
@@ -91,12 +88,12 @@ include '../View/footer.php';
 
 <script>
 
-    $("#clickbtn").click(function () {
+        $("#clickbtn").click(function () {
         $.ajax({
             //Post传参
             type: "Get",
             //服务地址
-            url: "http://192.168.0.213:8080/OfficeSystemServer/webresources/Employee",
+            url: GlobalConfig.EmployeeUrl,
             data: null,
             dataType: "text",
             contentType: "text/plain;charset=utf-8",
@@ -120,20 +117,19 @@ include '../View/footer.php';
             }
         })
     });
+   
+
 </script>
 
 <script>
     function trClick(data) {
         // document.getElementById( "tttr" ).className =  "js-canvi-open-button--left";
-
-        document.getElementById("account").innerHTML = data.employee_account;
-        document.getElementById("address").innerHTML = data.address;
-        document.getElementById("name").innerHTML = data.employee_name;
-        document.getElementById("email").innerHTML = data.email;
-        document.getElementById('gender').innerHTML = data.genre;
-        document.getElementById('position').innerHTML =data.position_name;
-        document.getElementById('status').innerHTML=data.status;
-        dacument.getElementById('department').innerHTML=data.department_name;
+        document.getElementById("id").value = data.employee_id;
+        document.getElementById("account").value = data.employee_account;
+        document.getElementById("Address").value = data.address;
+        document.getElementById("name").value = data.employee_name;
+        document.getElementById("inputEmail").value = data.email;
+        document.getElementById('inpuGender').value = data.genre;
         
         //{"date":"","birthday":"1997-02-14","address":"224 Glenwood","department_id":3,"department_name":"Management","position_name":"HR","employee_name":"BO",
         //"password":null,"employee_id":65,"genre":1,"email":"D00198309@student.dkit.ie","employee_account":"D00198309","position_id":1,"status":2})
@@ -164,5 +160,5 @@ include '../View/footer.php';
                 }]
         })
     </script>
-
-
+    
+    

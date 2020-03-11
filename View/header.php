@@ -14,9 +14,11 @@
         <link href="../CSS/LeftMenu/form.css" rel="stylesheet">
         <script src="../CSS/ie-emulation-modes-warning.js"></script>
         <link href="../CSS/table.css" rel="stylesheet">
+        <link href="../CSS/LeftMenu/form.css" rel="stylesheet">
         <link href="../CSS/Modal/Modal.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../CSS/LeftMenurmalize.css" />
-        <link href="../CSS/LeftMenu/canvi.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/LeftMenu/canvi.css" rel="stylesheet" type="text/css"/>
+        <link href="../CSS/holiday.css" rel="stylesheet" type="text/css"/>
 
         
         

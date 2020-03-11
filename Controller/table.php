@@ -216,7 +216,7 @@
             //Post传参
             type: "Get",
             //服务地址
-            url: "http://192.168.0.213:8080/OfficeSystemServer/webresources/Employee",
+            url: GlobalConfig. EmployeeUrl,
             data: null,
             dataType: "text",
             contentType: "text/plain;charset=utf-8",

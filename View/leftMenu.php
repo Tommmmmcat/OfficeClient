@@ -7,7 +7,7 @@
                             <li class="js-canvi-open-button--left"><a>Add employee</a></li>
                             <li id="clickbtn"><a href="#"  >Display Employee</a></li> 
                             <li><a   href="#" >Show blank page</a></li>
-                            <li><a href="#">*****</a></li>
+                            <li><a href="../VIew/listVacation.php">Manage Vacation</a></li>
                         </ul>
                         <ul class="nav nav-sidebar">
                             <li><a href="">Nav item</a></li>

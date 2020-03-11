@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Office_system_v0.2/View/main.php</file>
-            <file>file:/C:/xampp/htdocs/Office_system_v0.2/Controller/demo.php</file>
+            <file>file:/C:/xampp/htdocs/Office_system_v0.2/View/aside.php</file>
             <file>file:/C:/xampp/htdocs/Office_system_v0.2/Controller/index.php</file>
-            <file>file:/C:/xampp/htdocs/Office_system_v0.2/View/topbar.php</file>
-            <file>file:/C:/xampp/htdocs/Office_system_v0.2/View/nav.php</file>
+            <file>file:/C:/xampp/htdocs/Office_system_v0.2/Model/editEmpaction.php</file>
+            <file>file:/C:/xampp/htdocs/Office_system_v0.2/Model/loginaction.php</file>
         </group>
     </open-files>
 </project-private>
